@@ -1,0 +1,101 @@
+/* General form styling */
+form {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Label styling */
+  label {
+    display: block;
+    font-weight: bold;
+    margin: 10px 0 5px;
+  }
+  
+  /* Input and select styling */
+  input[type="text"],
+  input[type="date"],
+  textarea,
+  select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  /* Textarea styling */
+  textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+  
+  /* Radio and checkbox styling */
+  input[type="radio"],
+  input[type="checkbox"] {
+    margin-right: 5px;
+    cursor: pointer;
+  }
+  
+/* Profile image selection */
+/* Profile image container */
+div img {
+    width: 50px;        /* Ensure equal width */
+    height: 50px;       /* Ensure equal height */
+    border-radius: 50%; /* Make it a perfect circle */
+    object-fit: cover;  /* Ensures the image fits properly */
+    display: block;     /* Prevents inline spacing issues */
+    border: 2px solid transparent;
+    transition: transform 0.2s ease-in-out, border 0.2s ease-in-out;
+  }
+  
+  /* Hover effect */
+  div img:hover {
+    transform: scale(1.1);
+    border: 2px solid #007bff; /* Blue border on hover */
+  }
+  
+  /* Selected profile image */
+  input[type="radio"]:checked + img {
+    border: 3px solid #28a745; /* Green border for selected image */
+  }
+  
+  
+  
+  /* Submit button styling */
+  button {
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  button:hover {
+    background: #0056b3;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    form {
+      width: 90%;
+    }
+  }
+  #salary {
+    width: 200px;  /* Adjust width as needed */
+    height: 40px;  /* Adjust height as needed */
+    font-size: 18px; /* Increase text size */
+    padding: 5px;
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid #ccc; /* Light border */
+  }
+  

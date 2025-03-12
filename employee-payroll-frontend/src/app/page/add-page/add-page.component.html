@@ -1,0 +1,82 @@
+<form (ngSubmit)="onSubmit()" #employeeForm="ngForm">
+  <!-- Name -->
+  <label for="name">Name:</label>
+  <input type="text" id="name" [(ngModel)]="employee.name" name="name" required pattern="^[A-Z][a-zA-Z\s]*$" />
+
+  <!-- Salary -->
+  <label for="salary">Salary:</label>
+<input type="number" id="salary" [(ngModel)]="employee.salary" name="salary" required min="1000" placeholder="Enter salary" />
+
+
+  <!-- Gender -->
+  <label>Gender:</label>
+  <input type="radio" [(ngModel)]="employee.gender" name="gender" value="Male" /> Male
+  <input type="radio" [(ngModel)]="employee.gender" name="gender" value="Female" /> Female
+  <input type="radio" [(ngModel)]="employee.gender" name="gender" value="Other" /> Other
+
+  <!-- Note -->
+  <label for="note">Note:</label>
+  <textarea id="note" [(ngModel)]="employee.note" name="note" required></textarea>
+
+  <!-- Start Date -->
+  <label for="startDate">Start Date:</label>
+  <input type="date" id="startDate" [(ngModel)]="employee.startDate" name="startDate" required />
+
+  <!-- Profile Pic Selection -->
+  <label>Profile Pic:</label>
+  <div class="profile-container">
+    <div *ngFor="let img of profileImages" class="profile-option">
+      <input type="radio" [(ngModel)]="employee.profilePic" name="profilePic" [value]="img" required />
+      <img [src]="img" alt="Profile Pic" />
+    </div>
+  </div>
+
+  <!-- Department Selection -->
+  <label>Department:</label>
+  <div *ngFor="let dept of departments">
+    <input type="checkbox" [value]="dept" (change)="onDepartmentChange($event, dept)" />
+    {{ dept }}
+  </div>
+
+  <!-- Submit Button -->
+  <button type="submit" [disabled]="!employeeForm.valid">Submit</button>
+</form>
+
+<style>
+/* Profile container: Align images horizontally */
+.profile-container {
+  display: flex;
+  gap: 10px; /* Spacing between images */
+  align-items: center;
+  flex-wrap: wrap; /* Wrap if not enough space */
+}
+
+/* Individual profile option */
+.profile-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Profile images - Perfect circle */
+.profile-option img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%; /* Make it circular */
+  object-fit: cover;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, border 0.2s ease-in-out;
+}
+
+/* Hover effect */
+.profile-option img:hover {
+  transform: scale(1.1);
+  border: 2px solid #007bff;
+}
+
+/* Selected profile image */
+input[type="radio"]:checked + img {
+  border: 3px solid #28a745;
+}
+</style>
